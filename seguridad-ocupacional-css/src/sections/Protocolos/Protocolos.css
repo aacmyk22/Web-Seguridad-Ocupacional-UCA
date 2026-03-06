@@ -1,0 +1,358 @@
+.protocolos {
+  padding: var(--section-padding) 0;
+  background: var(--color-surface-muted);
+}
+
+.protocolos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-lg);
+}
+
+.protocolos .ui-card__icon {
+  background: rgba(15, 106, 180, 0.1);
+}
+
+.btn-guia {
+  width: 100%;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: 999px;
+  border: none;
+  background: var(--color-primary);
+  color: var(--color-surface);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: transform var(--transition-base), background var(--transition-base);
+}
+
+.btn-guia:hover {
+  background: var(--color-secondary);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .protocolos {
+    padding: calc(var(--section-padding) * 0.8) 0;
+  }
+}
+
+:root {
+  --blue-uca: #1a2b4c;
+  --blue-accent: #2e59a7;
+  --red-emergency: #e63946;
+  --bg-light: #f8fafd;
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.modal-overlay-creativo {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.guia-premium {
+  background: white;
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  border-radius: 32px;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  scrollbar-width: none; /* Oculta scroll en Firefox */
+}
+
+.guia-premium::-webkit-scrollbar { display: none; } /* Oculta scroll en Chrome */
+
+/* Header con más aire */
+.guia-header-premium {
+  padding: 24px 30px 10px;
+}
+
+.btn-regresar {
+  background: #f1f5f9;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 12px;
+  color: var(--blue-uca);
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.btn-regresar:hover { background: #e2e8f0; }
+
+/* Sección Hero más impactante */
+.hero-guia {
+  padding: 0 30px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-text h1 {
+  font-size: 2rem;
+  color: var(--blue-uca);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.hero-text .subtitle {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin-top: 4px;
+}
+
+/* Banner de Prioridad */
+.regla-oro-premium {
+  margin: 0 30px 24px;
+  padding: 20px;
+  background: linear-gradient(135deg, #2e59a7 0%, #1a2b4c 100%);
+  border-radius: 20px;
+  color: white;
+  position: relative;
+}
+
+.badge {
+  background: rgba(255,255,255,0.2);
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+/* Cards con mejor espaciado */
+.cards-dinamicas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 0 30px;
+  margin-bottom: 30px;
+}
+
+.card-paso {
+  background: white;
+  border: 1px solid #f1f5f9;
+  padding: 20px 10px;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+}
+
+.step-number {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--blue-accent);
+  opacity: 0.5;
+}
+
+.card-icon { font-size: 1.5rem; margin: 8px 0; }
+
+/* Listas de SI/NO con diseño limpio */
+.info-grid-creative {
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.info-box-si, .info-box-no {
+  padding: 16px 20px;
+  border-radius: 18px;
+}
+
+.info-box-si { background: #f0fdf4; border: 1px solid #dcfce7; }
+.info-box-no { background: #fef2f2; border: 1px solid #fee2e2; }
+
+.info-grid-creative h5 {
+  margin: 0 0 8px 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.info-grid-creative ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.9rem;
+  color: #334155;
+}
+
+/* Footer de Emergencia */
+.footer-emergency-premium {
+  margin: 0 30px 30px;
+  background: var(--red-emergency);
+  padding: 24px;
+  border-radius: 24px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 10px 20px rgba(230, 57, 70, 0.3);
+}
+
+.emergency-number {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: white;
+  text-decoration: none;
+  margin-top: 4px;
+}
+
+/* Titulaciones de sección con el color naranja de la guía original */
+.titulo-seccion-naranja {
+  color: #d68100;
+  font-size: 0.85rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+}
+
+.titulo-seccion-azul {
+  color: #1a2b4c;
+  font-size: 0.9rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+/* Listas con estilo limpio */
+.lista-simple {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-simple li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+  color: #475569;
+}
+
+.lista-simple li::before {
+  content: '🚨';
+  position: absolute;
+  left: 0;
+}
+
+/* Timeline de Evacuación (Pasos 4, 5, 6) */
+.seccion-evacuacion {
+  padding: 0 30px;
+  margin-bottom: 30px;
+}
+
+.timeline-evacuacion {
+  border-left: 2px solid #e2e8f0;
+  margin-left: 10px;
+  padding-left: 20px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 15px;
+  font-size: 0.85rem;
+  color: #334155;
+}
+
+.timeline-item .num {
+  position: absolute;
+  left: -31px;
+  background: #2e59a7;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+/* Caja de información del campus */
+.campus-info-box {
+  margin: 0 30px 30px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.map-note {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Ajustes generales de texto */
+.seccion-texto-blanco {
+  padding: 0 30px;
+  margin-bottom: 30px;
+}
+
+/* Overlay y Contenedor */
+.modal-overlay-creativo {
+  position: fixed; inset: 0; background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(10px); display: flex; justify-content: center;
+  align-items: center; z-index: 10000; padding: 20px;
+}
+
+.guia-premium {
+  background: white; width: 100%; max-width: 480px; border-radius: 30px;
+  max-height: 90vh; overflow-y: auto; box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+}
+
+/* Cabeceras Dinámicas */
+.guia-header-premium { padding: 40px 20px 20px; text-align: center; color: white; }
+.header-sismo { background: #1a2b4c; }
+.header-incendio { background: #9a031e; }
+.header-laboratorio { background: #005f73; }
+.header-campo { background: #1b4332; }
+
+.btn-regresar { 
+  position: absolute; top: 15px; left: 15px; background: rgba(255,255,255,0.2);
+  border: none; color: white; padding: 5px 15px; border-radius: 10px; cursor: pointer;
+}
+
+/* Regla de Oro Colores */
+.regla-oro-premium { margin: 20px; padding: 20px; border-radius: 20px; color: white; }
+.bg-sismo { background: #2e59a7; }
+.bg-incendio { background: #e36414; }
+.bg-laboratorio { background: #0a9396; }
+.bg-campo { background: #2d6a4f; }
+
+/* Grid de Pasos */
+.cards-dinamicas { 
+  display: grid; grid-template-columns: repeat(3, 1fr); 
+  gap: 12px; padding: 0 20px; margin-bottom: 20px; 
+}
+.card-paso { 
+  background: #f8fafc; padding: 15px 5px; border-radius: 20px; 
+  text-align: center; border: 1px solid #e2e8f0;
+}
+.card-icon { font-size: 1.8rem; margin-bottom: 5px; }
+.card-paso h3 { font-size: 0.75rem; font-weight: 800; color: #1e293b; }
+
+/* Listas SI/NO */
+.info-grid-creative { padding: 0 20px; display: flex; flex-direction: column; gap: 15px; }
+.info-box-si { background: #f0fdf4; padding: 15px; border-radius: 15px; color: #166534; }
+.info-box-no { background: #fef2f2; padding: 15px; border-radius: 15px; color: #991b1b; }
+
+/* Footer de Emergencia */
+.footer-emergency-premium { margin: 25px; padding: 20px; border-radius: 25px; text-align: center; color: white; }
+.emergency-number { font-size: 1.4rem; font-weight: 900; }
+
+

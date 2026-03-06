@@ -1,0 +1,22 @@
+.riesgos {
+  padding: var(--section-padding) 0;
+  background: var(--color-surface-muted);
+}
+
+.riesgos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-lg);
+}
+
+.riesgos .ui-card__icon {
+  background: rgba(255, 107, 53, 0.15);
+  color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+  .riesgos {
+    padding: calc(var(--section-padding) * 0.8) 0;
+  }
+}
+

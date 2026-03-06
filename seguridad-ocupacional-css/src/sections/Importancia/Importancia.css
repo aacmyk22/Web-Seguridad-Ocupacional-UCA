@@ -1,0 +1,22 @@
+.importancia {
+  padding: var(--section-padding) 0;
+  background: var(--color-surface-muted);
+}
+
+.importancia-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-lg);
+}
+
+.importancia .ui-card__icon {
+  font-size: 2.5rem;
+  background: rgba(15, 106, 180, 0.1);
+}
+
+@media (max-width: 768px) {
+  .importancia {
+    padding: calc(var(--section-padding) * 0.8) 0;
+  }
+}
+

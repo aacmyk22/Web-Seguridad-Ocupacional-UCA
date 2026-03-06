@@ -1,0 +1,109 @@
+.registro {
+  padding: 80px 0;
+  background: #f0f2f5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e3a5f;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.registro-wrapper {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.sharepoint-form-container {
+  position: relative;
+  width: 100%;
+  min-height: 800px;
+  background: white;
+  border-radius: 10px;
+}
+
+.sharepoint-form-iframe {
+  width: 100%;
+  min-height: 800px;
+  border: none;
+  display: block;
+  background: white;
+}
+
+.form-fallback {
+  padding: 2rem;
+  text-align: center;
+  background: #f8f9fa;
+  border-top: 1px solid #e0e0e0;
+}
+
+.fallback-text {
+  color: #7f8c8d;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.form-link {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: #ff6b35;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.form-link:hover {
+  background: #e55a2b;
+}
+
+/* Estilos para cuando el formulario está cargando */
+.sharepoint-form-container::before {
+  content: 'Cargando formulario...';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #7f8c8d;
+  font-size: 1rem;
+  z-index: -1;
+}
+
+@media (max-width: 768px) {
+  .registro {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .sharepoint-form-container {
+    min-height: 600px;
+  }
+
+  .sharepoint-form-iframe {
+    min-height: 600px;
+  }
+
+  .form-fallback {
+    padding: 1.5rem;
+  }
+
+  .form-link {
+    padding: 0.625rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}

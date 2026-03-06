@@ -1,0 +1,58 @@
+.contact-bar {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  display: flex;
+  gap: 0.6rem;
+  background: #1e3a5f;
+  padding: 0.65rem 0.75rem;
+  border-radius: 999px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+  z-index: 1000;
+}
+
+.contact-bar__link {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.contact-bar__link:hover {
+  transform: translateY(-1px) scale(1.02);
+  opacity: 0.9;
+}
+
+.contact-bar__link svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.contact-bar__link img {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .contact-bar {
+    right: 0.9rem;
+    bottom: 0.9rem;
+    gap: 0.5rem;
+    padding: 0.55rem 0.65rem;
+  }
+
+  .contact-bar__link {
+    width: 30px;
+    height: 30px;
+  }
+
+  .contact-bar__link svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+

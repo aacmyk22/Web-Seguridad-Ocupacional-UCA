@@ -1,0 +1,26 @@
+.epp {
+  padding: var(--section-padding) 0;
+  background: var(--color-surface);
+}
+
+.epp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-lg);
+}
+
+.epp .ui-card {
+  background: var(--color-surface-muted);
+  border: none;
+}
+
+.epp .ui-card__icon {
+  background: rgba(15, 106, 180, 0.12);
+}
+
+@media (max-width: 768px) {
+  .epp {
+    padding: calc(var(--section-padding) * 0.8) 0;
+  }
+}
+

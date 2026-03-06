@@ -1,0 +1,141 @@
+.que-es {
+  padding: 40px 0 80px;
+  background: white;
+}
+
+.que-es-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+.que-es-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.que-es-text .section-title {
+  margin: 0 0 0.5rem;
+}
+
+.que-es-text .description {
+  margin: 0;
+}
+
+.description {
+  color: #7f8c8d;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.principios-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.principio-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.principio-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+}
+
+.principio-text h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e3a5f;
+  margin-bottom: 0.25rem;
+}
+
+.principio-icon img {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+.principio-text p {
+  color: #7f8c8d;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.que-es-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #f8fafc 0%, #e8f4f8 100%);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(30, 58, 95, 0.08);
+  border: 1px solid rgba(30, 58, 95, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(30, 58, 95, 0.12);
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 0.75rem;
+  background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-icon svg {
+  width: 26px;
+  height: 26px;
+  color: white;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e3a5f;
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 968px) {
+  .que-es-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .que-es-stats {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .stat-card {
+    flex: 1 1 calc(50% - 0.75rem);
+    min-width: 140px;
+  }
+}
+
