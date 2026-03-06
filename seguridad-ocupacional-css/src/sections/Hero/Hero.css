@@ -235,3 +235,138 @@
     bottom: 1rem;
   }
 }
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  background: url('tu-imagen-de-fondo.jpg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  color: white;
+  padding-top: 80px;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.4));
+}
+
+.hero-container { position: relative; z-index: 2; width: 90%; margin: auto; }
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Badge Campus */
+.badge-campus {
+  background: rgba(74, 222, 128, 0.1);
+  color: #4ade80;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+.hero-text-content h1 { font-size: 3.5rem; margin-top: 20px; line-height: 1.1; }
+.hero-text-content h1 span { color: #ffffff; font-weight: 800; }
+.hero-text-content p { font-size: 1.1rem; margin: 25px 0; color: #cbd5e1; max-width: 500px; }
+
+
+.active-protocol-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  padding: 30px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 320px;
+  margin-left: auto;
+}
+
+.card-icon-box { background: #3b82f6; width: 50px; height: 50px; border-radius: 12px; display: flex; justify-content: center; align-items: center; margin-bottom: 20px; }
+
+.progress-bar { height: 6px; background: white; border-radius: 10px; margin-top: 15px; }
+.progress-container { background: rgba(255,255,255,0.2); height: 6px; border-radius: 10px; }
+
+/* Stats Inferiores */
+.hero-stats {
+  display: flex;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  margin-top: 80px;
+  padding: 25px;
+  border-radius: 20px;
+  width: fit-content;
+  gap: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  /* Al estar en la carpeta public, no usas /public/ ni ../, solo la barra inicial */
+  background-image: url('/hero-uca-2.jpg'); 
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(8px);
+  transform: scale(1.1);
+  z-index: -2;
+}
+
+/* Contenedor de acciones */
+.hero-actions {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* Estilo Base para ambos (enlaces que parecen botones) */
+.hero-actions a {
+  text-decoration: none;
+  padding: 14px 30px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Animación suave */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* BOTÓN PRIMARIO (Ver protocolos) */
+.btn-primary {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.btn-primary:hover {
+  background-color: white !important;
+  color: #1a2b4c !important; /* El texto se vuelve azul para legibilidad */
+  border-color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* BOTÓN SECUNDARIO (Registrarme) */
+.btn-secondary {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+/* ESTE ES EL CAMBIO QUE PEDISTE: Fondo blanco al pasar el mouse */
+.btn-secondary:hover {
+  background-color: white !important;
+  color: #1a2b4c !important; /* El texto se vuelve azul para legibilidad */
+  border-color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}

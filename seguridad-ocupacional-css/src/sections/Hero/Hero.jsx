@@ -1,63 +1,82 @@
-import { useState, useEffect } from 'react'
-import { heroSlides, heroCopy } from '../../content/sections'
-import './Hero.css'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ClipboardCheck, ShieldCheck, Users } from 'lucide-react';
+import './Hero.css';
 
 const Hero = () => {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const slidesCount = heroSlides.length
-
-  // Auto-avanzar el carrusel cada 5 segundos
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slidesCount)
-    }, 5000)
-
-    return () => clearInterval(interval)
-  }, [slidesCount])
-
-  const goToSlide = (index) => {
-    setCurrentSlide(index)
-  }
-
   return (
-    <section id="inicio" className="hero">
-      <div className="hero-carousel">
-        {heroSlides.map((image, index) => (
-          <div
-            key={index}
-            className={`hero-slide ${index === currentSlide ? 'active' : ''}`}
+    <section className="hero-section">
+      {/* Fondo con imagen y desenfoque */}
+      <div className="hero-background"></div>
+      <div className="hero-overlay"></div>
+      
+      <div className="container hero-container">
+        <div className="hero-layout">
+          
+          {/* LADO IZQUIERDO */}
+          <motion.div 
+            className="hero-text-content"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            <img src={image.url} alt={image.alt} />
-            <div className="hero-overlay"></div>
-          </div>
-        ))}
+            <span className="badge-campus">● CAMPUS SEGURO</span>
+            <h1>Seguridad Ocupacional <br /> en <span>CSS UCA</span></h1>
+            <p>
+              Infórmate acerca de la importancia de la seguridad ocupacional y protocolos a seguir 
+              en los proyectos del Centro de Servicio Social: identificar peligros, usar el EPP 
+              correcto y actuar a tiempo.
+            </p>
+            <div className="hero-actions">
+              {/* Navegación a anclas de tu página */}
+              <a href="#protocolos" className="btn-primary">Ver protocolos</a>
+              <a href="#registro" className="btn-secondary">Realizar examen</a>
+            </div>
+          </motion.div>
 
-        {/* Indicadores */}
-        <div className="carousel-indicators">
-          {heroSlides.map((_, index) => (
-            <button
-              key={index}
-              className={`indicator ${index === currentSlide ? 'active' : ''}`}
-              onClick={() => goToSlide(index)}
-              aria-label={`Ir a slide ${index + 1}`}
-            />
-          ))}
+          {/* LADO DERECHO: TARJETA SALTANDO */}
+          <motion.div 
+            className="hero-visual"
+            animate={{ y: [0, -15, 0] }} // Animación de salto constante
+            transition={{ 
+              duration: 2, 
+              repeat: Infinity, 
+              ease: "easeInOut" 
+            }}
+          >
+            <div className="active-protocol-card">
+              <div className="card-icon-box">
+                <ClipboardCheck size={28} color="white" />
+              </div>
+              <h3>Protocolo Activo</h3>
+              <p>
+                "Completa tu capacitación obligatoria en protocolos de seguridad. Al llegar al 100% estaras listo para realizar el examen
+                de certificación y registrar tu participación en el programa de Campus Seguro"
+              </p>
+              {/* Barra de progreso simplificada */}     
+            </div>
+          </motion.div>
         </div>
-      </div>
 
-      <div className="hero-content">
-        <h1 className="hero-title">{heroCopy.title}</h1>
-        <p className="hero-subtitle">{heroCopy.subtitle}</p>
-        <div className="hero-buttons">
-          {heroCopy.actions.map((action) => (
-            <a key={action.href} href={action.href} className="btn-link">
-              {action.label}
-            </a>
-          ))}
+        {/* STATS */}
+        <div className="hero-stats">
+          <div className="stat-item">
+            <div className="stat-icon"><ClipboardCheck size={20}/></div>
+            <div>
+              <p>Índice de cumplimiento</p>
+            </div>
+          </div>
+          <div className="stat-divider"></div>
+          <div className="stat-item">
+            <div className="stat-icon"><Users size={20}/></div>
+            <div>
+              <p>Estudiantes capacitados</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
