@@ -6,4 +6,4 @@ export { default as EPP } from './EPP/EPP'
 export { default as Riesgos } from './Riesgos/Riesgos'
 export { default as Reportes } from './Reportes/Reportes'
 export { default as Registro } from './Registro/Registro'
-
+export { default as Examen } from './Examen/Examen'

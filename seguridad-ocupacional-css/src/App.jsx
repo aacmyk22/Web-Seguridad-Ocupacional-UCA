@@ -12,6 +12,7 @@ import {
   Riesgos,
   Reportes,
   Registro,
+  Examen,
 } from './sections'
 import './App.css'
 
@@ -34,6 +35,7 @@ function App() {
       <Riesgos />
       <Reportes />
       <Registro />
+      <Examen />
       <ContactBar />
       <Footer />
     </div>
