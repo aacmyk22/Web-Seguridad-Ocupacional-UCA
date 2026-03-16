@@ -18,41 +18,34 @@ const Examen = () => {
     try { return localStorage.getItem('examen_css_completado') === 'true' } catch { return false }
   })
 
-  const iframeRef = useRef(null)
-  const pollRef  = useRef(null)
+  const iframeRef   = useRef(null)
+  const loadCount   = useRef(0)   // counts iframe onLoad fires
 
-  /* ── Poll iframe DOM for submission confirmation ── */
-  const startPolling = () => {
-    let attempts = 0
-    const MAX = 40
+  const markCompleted = () => {
+    try { localStorage.setItem('examen_css_completado', 'true') } catch {}
+    setCompleted(true)
+    setModalOpen(false)
+  }
 
-    pollRef.current = setInterval(() => {
-      attempts++
-      try {
-        const doc = iframeRef.current?.contentDocument
-        if (doc) {
-          const text = doc.body?.innerText || ''
-          // Microsoft Forms shows these strings after submission
-          if (
-            text.includes('respuesta se ha guardado') ||
-            text.includes('response was saved') ||
-            text.includes('Thank you') ||
-            text.includes('Gracias') ||
-            text.includes('submitted') ||
-            text.includes('enviado') ||
-            // Fallback: look for the "Done" / checkmark page structure
-            doc.querySelector('[data-automation-id="thankYouPage"]') ||
-            doc.querySelector('.thank-you-page') ||
-            doc.querySelector('[class*="thankYou"]')
-          ) {
-            markCompleted()
-          }
-        }
-      } catch {
-        // Cross-origin: can't read iframe — rely on postMessage below
-      }
-      if (attempts >= MAX) clearInterval(pollRef.current)
-    }, 1500)
+  /*
+   * Microsoft Forms lifecycle inside the iframe:
+   *   Load #1 → the blank/form page loads (initial navigation)
+   *   Load #2 → after submit, Forms navigates to the results/score page
+   *
+   * We can't read the cross-origin DOM, but we CAN observe the navigation
+   * event via onLoad. The second fire means the form was submitted.
+   */
+  const handleIframeLoad = () => {
+    loadCount.current += 1
+    setIframeLoaded(true)
+
+    if (loadCount.current >= 2) {
+      // Second load = results page → form was submitted
+      markCompleted()
+      return
+    }
+
+    // Also try postMessage as a secondary signal (some Form configs send it)
   }
 
   /* ── Listen for postMessage from Microsoft Forms ── */
@@ -64,7 +57,8 @@ const Examen = () => {
         msg.includes('submit') ||
         msg.includes('Submitted') ||
         msg.includes('Thank') ||
-        msg.includes('Gracias')
+        msg.includes('Gracias') ||
+        msg.includes('score')
       ) {
         markCompleted()
       }
@@ -73,36 +67,23 @@ const Examen = () => {
     return () => window.removeEventListener('message', handler)
   }, [])
 
-  const markCompleted = () => {
-    clearInterval(pollRef.current)
-    try { localStorage.setItem('examen_css_completado', 'true') } catch {}
-    setCompleted(true)
-    setModalOpen(false)
-  }
-
   const openModal = () => {
+    loadCount.current = 0   // reset counter each time modal opens
     setIframeLoaded(false)
     setModalOpen(true)
   }
 
-  const closeModal = () => {
-    clearInterval(pollRef.current)
-    setModalOpen(false)
+ const closeModal = () => {
+  if (loadCount.current >= 1) {
+    markCompleted()
   }
-
-  const handleIframeLoad = () => {
-    setIframeLoaded(true)
-    startPolling()
-  }
-
+  setModalOpen(false)
+}
   /* Lock body scroll when modal is open */
   useEffect(() => {
     document.body.style.overflow = modalOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [modalOpen])
-
-  /* Cleanup on unmount */
-  useEffect(() => () => clearInterval(pollRef.current), [])
 
   return (
     <section id="examen" className="examen">
@@ -176,7 +157,6 @@ const Examen = () => {
                 <span>Cargando formulario…</span>
               </div>
               <iframe
-                ref={iframeRef}
                 src={FORM_URL}
                 className="examen-iframe"
                 title="Examen de Seguridad Ocupacional"
