@@ -30,7 +30,7 @@ const Hero = () => {
             <div className="hero-actions">
               {/* Navegación a anclas de tu página */}
               <a href="#protocolos" className="btn-primary">Ver protocolos</a>
-              <a href="#registro" className="btn-secondary">Realizar examen</a>
+              <a href="#examen" className="btn-secondary">Realizar examen</a>
             </div>
           </motion.div>
 

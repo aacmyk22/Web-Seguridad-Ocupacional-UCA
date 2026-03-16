@@ -26,7 +26,7 @@ const Header = () => {
           <a href="#epp" onClick={() => setIsMenuOpen(false)}>EPP</a>
           <a href="#riesgos" onClick={() => setIsMenuOpen(false)}>Riesgos</a>
           <a href="#reportes" onClick={() => setIsMenuOpen(false)}>Reportes</a>
-          <a href="#registro" onClick={() => setIsMenuOpen(false)}>Registro</a>
+
           <a href="#examen" onClick={() => setIsMenuOpen(false)}>Examen</a>
         </nav>
         <button className="menu-toggle" onClick={toggleMenu}>

@@ -34,7 +34,7 @@ function App() {
       <EPP />
       <Riesgos />
       <Reportes />
-      <Registro />
+
       <Examen />
       <ContactBar />
       <Footer />
